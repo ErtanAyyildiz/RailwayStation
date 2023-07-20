@@ -1,0 +1,42 @@
+﻿@model List<TrainJourney>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Tren Seferleri</h2>
+
+<p>
+    <a asp-controller="TrainJourney" asp-action="Create" class="btn btn-primary">Yeni Tren Seferi Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sefer ID</th>
+            <th>Kalkış İstasyonu</th>
+            <th>Varış İstasyonu</th>
+            <th>Kalkış Saati</th>
+            <th>Varış Saati</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var journey in Model)
+        {
+            <tr>
+                <td>@journey.JourneyID</td>
+                <td>@journey.DepartureStation.StationName</td>
+                <td>@journey.ArrivalStation.StationName</td>
+                <td>@journey.DepartureDateTime.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>@journey.ArrivalDateTime.ToString("dd.MM.yyyy HH:mm")</td>
+                <td>
+                    <a asp-controller="TrainJourney" asp-action="Edit" asp-route-id="@journey.JourneyID" class="btn btn-primary">Düzenle</a>
+                    <a asp-controller="TrainJourney" asp-action="Delete" asp-route-id="@journey.JourneyID" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

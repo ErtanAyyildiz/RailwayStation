@@ -1,0 +1,37 @@
+﻿@model List<TrainStation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Tren İstasyonları</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Yeni İstasyon Ekle</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>İstasyon Adı</th>
+            <th>İstasyon Adresi</th>
+            <th>İstasyon Konumu</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var istasyon in Model)
+        {
+            <tr>
+                <td>@istasyon.StationName</td>
+                <td>@istasyon.StationAddress</td>
+                <td>@istasyon.StationLocation</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@istasyon.StationID" class="btn btn-primary">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@istasyon.StationID" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

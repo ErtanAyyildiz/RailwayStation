@@ -1,0 +1,10 @@
+﻿namespace Business
+{
+    public class Class1
+    {
+        public static void main()
+        {
+            Console.WriteLine(  "Selam");
+        }
+    }
+}

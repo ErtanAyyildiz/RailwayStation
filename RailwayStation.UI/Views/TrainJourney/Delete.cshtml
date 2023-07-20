@@ -1,0 +1,16 @@
+﻿@model TrainJourney
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Tren Seferini Sil</h2>
+
+<p>Tren Seferini silmek istediğinize emin misiniz?</p>
+
+<form asp-controller="TrainJourney" asp-action="Delete" asp-route-id="@Model.JourneyID" method="post">
+    <button type="submit" class="btn btn-danger">Sil</button>
+    <a asp-controller="TrainJourney" asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>

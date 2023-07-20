@@ -1,0 +1,30 @@
+﻿@model TrainJourney
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Tren Seferini Düzenle</h2>
+
+<form asp-controller="TrainJourney" asp-action="Edit" asp-route-id="@Model.JourneyID" method="post">
+    <input type="hidden" asp-for="JourneyID" />
+    <div class="form-group">
+        <label for="DepartureStationID">Kalkış İstasyonu:</label>
+        <select asp-for="DepartureStationID" asp-items="@(new SelectList(ViewBag.Stations, "StationID", "StationName"))" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label for="ArrivalStationID">Varış İstasyonu:</label>
+        <select asp-for="ArrivalStationID" asp-items="@(new SelectList(ViewBag.Stations, "StationID", "StationName"))" class="form-control"></select>
+    </div>
+    <div class="form-group">
+        <label for="DepartureDateTime">Kalkış Saati:</label>
+        <input asp-for="DepartureDateTime" type="datetime-local" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="ArrivalDateTime">Varış Saati:</label>
+        <input asp-for="ArrivalDateTime" type="datetime-local" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
