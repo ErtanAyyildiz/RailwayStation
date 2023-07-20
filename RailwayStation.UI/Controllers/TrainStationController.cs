@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RailwayStation.Business.Abstracts;
 using RailwayStation.Entity.Modals;
 

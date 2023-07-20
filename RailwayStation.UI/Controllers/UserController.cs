@@ -1,5 +1,4 @@
-﻿// Kullanıcıların Yönetimi İçin Controller
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using RailwayStation.Entity.Modals;
 
@@ -32,7 +31,6 @@ public class UserController : Controller
         return View(user);
     }
 
-    // Kullanıcı Güncelleme İşlemi
     [HttpPost]
     public async Task<IActionResult> Edit(AppUser model)
     {
@@ -75,7 +73,6 @@ public class UserController : Controller
         return View(user);
     }
 
-    // Kullanıcı Silme İşlemi
     [HttpPost, ActionName("Delete")]
     public async Task<IActionResult> DeleteConfirmed(string id)
     {

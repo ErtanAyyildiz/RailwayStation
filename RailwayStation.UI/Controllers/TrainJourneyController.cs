@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using RailwayStation.Business.Abstracts;
 using RailwayStation.Entity.Modals;
 
@@ -33,15 +32,9 @@ namespace RailwayStation.UI.Controllers
         [HttpPost]
         public IActionResult Create(TrainJourney journey)
         {
-            //journey.DepartureStation = _trainStationService.GetByID(journey.DepartureStationID);
-            //journey.ArrivalStation = _trainStationService.GetByID(journey.ArrivalStationID);
-
             _trainJourneyService.Add(journey);
-            return RedirectToAction("Index");
 
-            //var stations = _trainStationService.GetList();
-            //ViewBag.Stations = stations;
-            //return View(journey);
+            return RedirectToAction("Index");
         }
 
         public async Task<IActionResult> Edit(int id)
@@ -67,10 +60,6 @@ namespace RailwayStation.UI.Controllers
 
             _trainJourneyService.Update(journey);
             return RedirectToAction("Index");
-
-            //var stations = _trainStationService.GetList();
-            //ViewBag.Stations = stations;
-            //return View(journey);
         }
 
         public IActionResult Delete(int id)
